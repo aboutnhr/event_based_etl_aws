@@ -1,0 +1,21 @@
+AWS Glue -> Script Editor -> Select Engine Spark -> Create script
+
+Configurations:
+
+{
+
+  IAMRole: GlueETLRole(Custom)
+  Type: Spark
+  Glue version: Glue 5.1
+  Language: Python3
+  Worker type: Default value
+  Requested number of workers: 3
+  script_filename: app_glue.py
+  script_path: s3://hanumanth-bigdata-practice-bucket/src_code/
+  Python library path: s3://hanumanth-bigdata-practice-bucket/src_code/pipeline_glue.py
+  Job Parameters:{
+    --input_observed: s3://hanumanth-bigdata-practice-bucket/sample_files/plants_observed_temp.csv
+    --input_required: s3://hanumanth-bigdata-practice-bucket/sample_files/plants_required_temp.csv
+    --output_path: s3://hanumanth-bigdata-practice-bucket/output
+  }
+}
